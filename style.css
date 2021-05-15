@@ -1,0 +1,126 @@
+:root {
+     --top-color: #000000;
+     --side-color: #ce1126;
+     --middle-color: #ffffff;
+     --bottom-color: #007a3d5b;
+     --light-green:#007a3d;
+     --max-width: 1100px;
+     --primary-color: rgba(255, 255, 255, 0.198);
+     --secondary-color: rgba(251, 134, 0, 0.9);
+     --overlay-color: rgba(2, 17, 2, 0.85);
+     --menu-speed: 0.75s;
+}
+
+ *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+font: normal 1rem/1.5 'Arial', sans-serif;
+background: #255a3f;
+overflow-x: hidden;
+color: #fff;
+padding-bottom: 50px;
+}
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.fa-chevron-right {
+    color: var(--side-color);
+}
+
+#main-header {
+  
+    background: var(--top-color);
+    padding: 15px;
+    margin-bottom: 50px;
+}
+#timeline ul > li {
+    list-style: none;
+    position: relative;
+    width: 6px;
+    background: #fff;
+    margin: 0 auto;
+    padding-top: 50px;
+    
+}
+#timeline ul > li > div {
+    position: relative;
+    bottom:0;
+    width: 400px;
+    background:  var(--light-green);
+    color: #000;
+    border: 1px solid rgba(255, 255, 255, 0.301);
+    padding: 1rem;
+    transition: all 0.6s ease-in-out;
+} 
+#timeline > ul > li:nth-child(odd) div {
+    left: 40px;
+}
+#timeline > ul > li:nth-child(even) div {
+    left: -434px;
+}
+
+#timeline ul > li::after {
+    content: '';
+    position: absolute;
+    background:#ce1126 ;
+    color:#ce1126;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    z-index: 1;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: background 0.5s ease-in-out;
+}
+/* Arrows Base */
+#timeline div::before {
+   content: '';
+   position: absolute;
+   bottom: 10px;
+   height: 0px;
+   width: 0px;
+
+   border-style: solid;
+}
+/* Right side arrows */
+#timeline > ul > li:nth-child(odd) div::before {
+  left: -15px;
+  border-width: 8px 16px 5px 0px;
+  border-color: transparent var(--light-green) transparent transparent;
+}
+/* Left side arrows */
+#timeline > ul > li:nth-child(even) div::before {
+    right: -15px;
+    border-width: 8px 0px 5px 16px;
+    border-color: transparent transparent transparent var(--light-green);
+  }
+  @media (max-width:900px) {
+    #timeline ul > li > div {
+        width: 250px;
+    }
+    #timeline > ul > li:nth-child(even) div {
+        left: -280px;
+    }
+  }
+  @media (max-width:600px) {
+    #timeline > ul > li:nth-child(even) div {
+        left: 40px;
+    }
+    #timeline ul > li {
+        margin-left: 20px;
+    }
+        #timeline > ul > li:nth-child(even) div::before {
+            left: -15px;
+            border-width: 8px 16px 5px 0px;
+            border-color: transparent var(--light-green) transparent transparent;
+          }
+    
+      
+  }
